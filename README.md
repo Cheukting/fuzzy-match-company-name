@@ -11,7 +11,6 @@ Library used:
 
 The data we used is found on http://download.companieshouse.gov.uk/en_output.html it is an openly licensed publicly avalible dataset that contains a list of registered (limited liability) companies in Great Britain. *(the version shown here is snapshot of May 2018)*
 
-
 ```python
 import pandas as pd
 pd.set_option('display.max_columns', 1000)
@@ -19,27 +18,6 @@ df = pd.read_csv("BasicCompanyDataAsOneFile-2018-05-01.csv")
 df.head()
 ```
 
-    C:\Users\921345\AppData\Local\Continuum\anaconda3\lib\site-packages\IPython\core\interactiveshell.py:2698: DtypeWarning: Columns (3,41,42,43,44,45,46,47,48,49,50,51,52) have mixed types. Specify dtype option on import or set low_memory=False.
-      interactivity=interactivity, compiler=compiler, result=result)
-    
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -394,12 +372,8 @@ df.head()
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 *This is a huge table with lots of rows, it may take a while to load*
-
 
 ```python
 df.columns
@@ -582,24 +556,6 @@ all_main_name.to_csv('company_in_cambridge.csv')
 ```python
 all_main_name[(all_main_name['names']!=all_main_name['alias']) & (all_main_name['alias'].notna())]
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1012,9 +968,6 @@ all_main_name[(all_main_name['names']!=all_main_name['alias']) & (all_main_name[
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 The result is saved in a csv file locally for future inspection and further experimentation. Inspecting the result, the matches consisted of 3 groups:
 
@@ -1025,7 +978,6 @@ The result is saved in a csv file locally for future inspection and further expe
 For type 1 and 2 matches it could be the same company, the diffeernce in names could be an intentional alteration or simply a typo. But it is not likely the same company for type 3 matched, it seems more like a coincidnce. 
 
 To further confirm, manual work need to be done but this program saves a lot of manual work hours.
-
 
 ```python
 all_main_name[(all_main_name['names']!=all_main_name['alias']) & (all_main_name['alias'].notna())].shape[0]
